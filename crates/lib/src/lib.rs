@@ -6,6 +6,7 @@ pub mod prelude {
     pub use itertools;
     pub use itertools::Itertools;
 }
+pub use indexmap;
 
 /// Prepare an input processor.
 #[macro_export]
@@ -59,7 +60,7 @@ macro_rules! bench {
     };
 
     ($name:literal, $func:expr) => {
-        println!("{}", $name);
+        println!("{}:", $name);
         bench!($func);
     };
 }
