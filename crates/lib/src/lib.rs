@@ -2,11 +2,12 @@ pub mod prelude {
     //! Helper prelude with useful imports.
     pub use crate::{bench, input, run};
     pub use anyhow::{anyhow, bail, Context, Result};
-    // pub type ArrayVec<T, const N: usize = 16> = arrayvec::ArrayVec<T, N>;
+    pub use indexmap::IndexMap;
     pub use itertools;
     pub use itertools::Itertools;
 }
-pub use indexmap;
+
+pub use rayon;
 
 /// Prepare an input processor.
 #[macro_export]
