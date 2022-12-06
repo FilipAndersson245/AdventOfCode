@@ -6,7 +6,6 @@ pub mod prelude {
     pub use itertools;
     pub use itertools::Itertools;
 }
-
 pub use rayon;
 
 /// Prepare an input processor.

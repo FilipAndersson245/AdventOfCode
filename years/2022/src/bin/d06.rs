@@ -1,4 +1,5 @@
 use lib::prelude::*;
+use lib::rayon::prelude::*;
 use std::collections::HashSet;
 
 pub fn solver(input: &str, chunk_size: usize) -> Result<usize> {
@@ -13,23 +14,52 @@ pub fn solver(input: &str, chunk_size: usize) -> Result<usize> {
     unreachable!()
 }
 
+pub fn solver_p(input: &str, chunk_size: usize) -> Result<usize> {
+    let input = input.bytes().collect_vec();
+    (0..input.len() - chunk_size)
+        .into_par_iter()
+        .find_first(|&idx| {
+            let chunk = &input[idx..(idx + chunk_size)];
+            let set: HashSet<_> = chunk.iter().collect();
+            set.len() == chunk_size
+        })
+        .map(|idx| idx + chunk_size)
+        .ok_or_else(|| unreachable!())
+}
+
 pub fn part_one(input: &str) -> Result<usize> {
     solver(input, 4)
+}
+
+pub fn part_one_p(input: &str) -> Result<usize> {
+    solver_p(input, 4)
 }
 
 pub fn part_two(input: &str) -> Result<usize> {
     solver(input, 14)
 }
 
+pub fn part_two_p(input: &str) -> Result<usize> {
+    solver_p(input, 14)
+}
+
 fn main() -> Result<()> {
     let input = input!("d06.txt")?;
-    run!("part_one", part_one(&input)?);
-    run!("part_two", part_two(&input)?);
+    run!("part_one", part_one(&input)?, 1210);
+    run!("part_one_par", part_one_p(&input)?, 1210);
+    run!("part_two", part_two(&input)?, 3476);
+    run!("part_two_par", part_two_p(&input)?, 3476);
     Ok(())
 }
 
 // part_one: 1210
-//  took 85.263µs
+//  took 109.71µs
+
+// part_one_par: 1210
+//  took 55.822µs
 
 // part_two: 3476
-//  took 756.983µs
+//  took 958.635µs
+
+// part_two_par: 3476
+//  took 301.216µs
