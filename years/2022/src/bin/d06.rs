@@ -3,7 +3,7 @@ use lib::rayon::prelude::*;
 use std::collections::HashSet;
 
 pub fn solver(input: &str, chunk_size: usize) -> Result<usize> {
-    let input = input.chars().collect_vec();
+    let input = input.bytes().collect_vec();
     for i in 0..(input.len() - chunk_size) {
         let chunk = &input[i..(i + chunk_size)];
         let set: HashSet<_> = chunk.iter().collect();
@@ -53,13 +53,13 @@ fn main() -> Result<()> {
 }
 
 // part_one: 1210
-//  took 109.71µs
+//  took 84.21µs
 
 // part_one_par: 1210
-//  took 55.822µs
+//  took 42.08µs
 
 // part_two: 3476
-//  took 958.635µs
+//  took 754.368µs
 
 // part_two_par: 3476
-//  took 301.216µs
+//  took 249.933µs
