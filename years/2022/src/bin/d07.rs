@@ -19,8 +19,7 @@ pub fn part_two(input: &str) -> Result<u64> {
 }
 
 pub fn solver(input: &str) -> (Vec<u64>, u64) {
-    let mut iter = input.lines().peekable();
-    let _ = iter.next(); // Skip first cd as we start there already
+    let mut iter = input.lines().skip(1).peekable();
     let mut cwd = PathBuf::new();
     let mut total = 0;
 
