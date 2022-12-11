@@ -7,3 +7,4 @@ edition = "2021"
 lib = { path = "../../crates/lib" }
 
 relative-path = "1.7.2"
+regex = "*"
