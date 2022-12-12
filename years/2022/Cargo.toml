@@ -8,3 +8,4 @@ lib = { path = "../../crates/lib" }
 
 relative-path = "1.7.2"
 regex = "*"
+pathfinding="*"
