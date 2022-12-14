@@ -1,3 +1,4 @@
+use fasthash::sea::Hash64;
 use std::collections::HashMap;
 
 use lib::prelude::*;
@@ -16,7 +17,7 @@ fn min_to_max(a: usize, b: usize) -> std::ops::RangeInclusive<usize> {
 pub fn part_one(input: &str) -> Result<usize> {
     // let mut grid = vec![vec![' '; 1000]; 1000];
     let mut largestst_y = 0;
-    let mut grid_map = HashMap::with_capacity(4096);
+    let mut grid_map = HashMap::with_capacity_and_hasher(8192, Hash64);
     input.lines().for_each(|line| {
         let mut iter = line.split(" -> ").map(parse_point);
         let mut from = iter.next().unwrap();
@@ -66,7 +67,7 @@ pub fn part_one(input: &str) -> Result<usize> {
 pub fn part_two(input: &str) -> Result<usize> {
     // let mut grid = vec![vec![' '; 1000]; 1000];
     let mut largestst_y = 0;
-    let mut grid_map = HashMap::with_capacity(4096);
+    let mut grid_map = HashMap::with_capacity_and_hasher(8192, Hash64);
     input.lines().for_each(|line| {
         let mut iter = line.split(" -> ").map(parse_point);
         let mut from = iter.next().unwrap();
@@ -126,7 +127,7 @@ fn main() -> Result<()> {
 }
 
 // part_one: 614
-//  took 1.241964ms
+//  took 367.664µs
 
 // part_two: 26170
-//  took 63.533585ms
+//  took 18.195992ms
