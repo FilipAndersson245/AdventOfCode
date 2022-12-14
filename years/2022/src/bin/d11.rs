@@ -90,7 +90,7 @@ fn parse(input: &str) -> Vec<Monkey> {
         })
     }
 
-    return monkeys;
+    monkeys
 }
 
 pub fn part_one(input: Vec<Monkey>) -> Result<usize> {

@@ -18,7 +18,7 @@ fn init_grid(input: &str) -> (Vec<Vec<bool>>, usize) {
         let mut iter = line.split(" -> ").map(parse_point);
         let mut from = iter.next().unwrap();
 
-        while let Some(to) = iter.next() {
+        for to in iter {
             for x in min_to_max(from.0, to.0) {
                 for y in min_to_max(from.1, to.1) {
                     if y > largestst_y {

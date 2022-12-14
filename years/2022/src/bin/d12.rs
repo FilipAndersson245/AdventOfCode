@@ -5,7 +5,7 @@ use pathfinding::prelude::{astar, bfs};
 
 pub fn part_one(input: &str) -> Result<usize> {
     let mut grid = input
-        .split("\n")
+        .split('\n')
         .map(|a| a.as_bytes().to_vec())
         .collect_vec();
 
@@ -48,7 +48,7 @@ pub fn part_one(input: &str) -> Result<usize> {
                 if current + 1 >= other {
                     return Some(((x, y), 1));
                 }
-                return None;
+                None
             })
         },
         |&(x, y)| (end_pos.0.abs_diff(x) + end_pos.1.abs_diff(y)),
@@ -60,7 +60,7 @@ pub fn part_one(input: &str) -> Result<usize> {
 
 pub fn part_two(input: &str) -> Result<usize> {
     let mut grid = input
-        .split("\n")
+        .split('\n')
         .map(|a| a.as_bytes().to_vec())
         .collect_vec();
 
@@ -106,12 +106,11 @@ pub fn part_two(input: &str) -> Result<usize> {
                 if current <= other + 1 {
                     return Some((x, y));
                 }
-                return None;
+                None
             })
         },
         |&p| multiple_start_pos.contains(&p),
-    )
-    .unwrap_or_else(|| (vec![]))
+    ).unwrap_or_default()
     .len()
         - 1;
 

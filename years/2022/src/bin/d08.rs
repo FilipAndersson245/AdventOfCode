@@ -50,7 +50,7 @@ pub fn part_one(input: &str) -> Result<u64> {
                 }
                 bads.push(bad);
             }
-            if bads.iter().any(|b| *b == false) {
+            if bads.iter().any(|b| !(*b)) {
                 count += 1;
             }
         }
@@ -113,7 +113,7 @@ pub fn part_two(input: &str) -> Result<u64> {
                 bads.push(bad);
             }
 
-            let contender = dists.iter().fold(1, |acc, v| acc * v);
+            let contender = dists.iter().product();
             best = best.max(contender);
         }
     }

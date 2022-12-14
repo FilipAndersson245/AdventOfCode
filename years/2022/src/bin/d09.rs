@@ -41,11 +41,11 @@ fn parse(input: &str) -> Vec<(i32, i32, usize)> {
 }
 
 pub fn part_one(input: &[(i32, i32, usize)]) -> Result<usize> {
-    Ok(solver(&input, 1))
+    Ok(solver(input, 1))
 }
 
 pub fn part_two(input: &[(i32, i32, usize)]) -> Result<usize> {
-    Ok(solver(&input, 9))
+    Ok(solver(input, 9))
 }
 
 fn main() -> Result<()> {

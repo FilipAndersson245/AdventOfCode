@@ -19,13 +19,13 @@ pub fn part_two(input: &str) -> Result<u64> {
 }
 
 pub fn solver(input: &str) -> (Vec<u64>, u64) {
-    let mut iter = input.lines().skip(1).peekable();
+    let iter = input.lines().skip(1).peekable();
     let mut cwd = PathBuf::new();
     let mut total = 0;
 
     let mut sizes = HashMap::<_, u64>::new();
 
-    while let Some(line) = iter.next() {
+    for line in iter {
         // Handle ls
         if line.starts_with("$ ls") {
             continue;

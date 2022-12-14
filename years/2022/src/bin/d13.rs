@@ -36,7 +36,7 @@ pub fn part_one(input: &str) -> Result<usize> {
     Ok(input
         .split("\n\n")
         .map(|pairs| {
-            let mut iter = pairs.split("\n");
+            let mut iter = pairs.split('\n');
             let left: Packet = serde_json::from_str(iter.next().unwrap()).unwrap();
             let right: Packet = serde_json::from_str(iter.next().unwrap()).unwrap();
             (left, right)
@@ -47,7 +47,7 @@ pub fn part_one(input: &str) -> Result<usize> {
 }
 
 pub fn part_two(input: &str) -> Result<usize> {
-    let input = format!("\n[[6]]\n[[2]]\n{}", input);
+    let input = format!("\n[[6]]\n[[2]]\n{input}");
     let data = input
         .split('\n')
         .filter(|&s| s.starts_with('['))
