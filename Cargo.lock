@@ -174,6 +174,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4217ad341ebadf8d8e724e264f13e593e0648f5b3e94b3896a5df283be015ecc"
 
 [[package]]
+name = "lazy_static"
+version = "1.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e2abad23fbc42b3700f2f279844dc832adb2b2eb069b2df918f455c4e18cc646"
+
+[[package]]
 name = "lib"
 version = "0.0.0"
 dependencies = [
@@ -205,6 +211,28 @@ dependencies = [
 ]
 
 [[package]]
+name = "memoize"
+version = "0.3.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c25d125e4063f313300d87c8f658e5b3d69257095df9a4221c12ba50b0421bff"
+dependencies = [
+ "lazy_static",
+ "memoize-inner",
+]
+
+[[package]]
+name = "memoize-inner"
+version = "0.3.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b8b7d5160e6ffcc59d4c571c38238ec5b7065bc91a5a24f511988dabcddda723"
+dependencies = [
+ "lazy_static",
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
 name = "num-traits"
 version = "0.2.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -225,9 +253,9 @@ dependencies = [
 
 [[package]]
 name = "pathfinding"
-version = "4.0.0"
+version = "4.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "09ba65132000a419ec9b12d1850a4f73896afd0e8575d4dae41097e17600048f"
+checksum = "2a2c300cc6deada32a75645bd9db32ed0b77dfa3f8e43456bafd84106e72cbcd"
 dependencies = [
  "fixedbitset",
  "indexmap",
@@ -465,6 +493,7 @@ version = "0.0.0"
 dependencies = [
  "fasthash",
  "lib",
+ "memoize",
  "pathfinding",
  "regex",
  "relative-path",
