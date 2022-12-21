@@ -17,3 +17,5 @@ serde_derive = "*"
 fasthash = "0.4.0"
 
 memoize = "0.3"
+
+petgraph = "0.6"
