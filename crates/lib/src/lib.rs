@@ -41,7 +41,7 @@ macro_rules! bench {
     ($func:expr) => {
         #[allow(unused_must_use)]
         {
-            let iterations = 500;
+            let iterations = 20;
             let mut measurments: Vec<std::time::Duration> = Vec::with_capacity(iterations);
             for _ in 0..iterations / 10 {
                 std::hint::black_box({ $func });

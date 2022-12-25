@@ -14,7 +14,7 @@ serde_json ="*"
 serde = "*"
 serde_derive = "*"
 
-fasthash = "0.4.0"
+ahash = "*"
 
 memoize = "0.3"
 
